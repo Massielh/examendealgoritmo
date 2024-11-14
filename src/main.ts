@@ -12,10 +12,10 @@ const rl = readline.createInterface({
 });
 
 export async function Menu() {
-  console.log('\nSeleccione una opción:');
-  console.log('1. Obtener cantidad de cada endpoint');
-  console.log('2. Obtener comentarios de un post');
-  console.log('3. Obtener posts de un usuario');
+  console.log('\nSelecciona una opción:');
+  console.log('1. Ver cantidad');
+  console.log('2. Ver comentarios');
+  console.log('3. Ver posts');
   console.log('4. Salir');
 
   rl.question('Ingrese su opción: ', async (option) => {
@@ -35,7 +35,7 @@ export async function Menu() {
         console.log(`Users: ${users.length}`);
         break;
       case '2':
-        rl.question('Ingrese el ID del post: ', async (postId) => {
+        rl.question('Ingresar al ID del post: ', async (postId) => {
           const postComments = await getPostComments(parseInt(postId));
           console.log(postComments);
           Menu();
@@ -52,7 +52,7 @@ export async function Menu() {
         rl.close();
         return;
       default:
-        console.log('Opción no válida');
+        console.log('Error');
     }
     Menu();
   });
